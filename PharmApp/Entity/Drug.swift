@@ -28,6 +28,12 @@ struct Drug: Identifiable {
         (name.components(separatedBy: ",").first ?? name)
             .lowercased()
             .capitalizeFirstLetter()
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    var prettyPharmaceuticalForm: String {
+        pharmaceuticalForm
+            .trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     // MARK: - Lifecycle
