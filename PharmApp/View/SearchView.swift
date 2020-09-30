@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct SearchView: View {
-    
     // MARK: - Properties
     
     @EnvironmentObject private var drugStore: DrugStore
     
     // MARK: - Body
-
+    
     var body: some View {
-        NavigationView {
-            List(drugStore.drugs) { drug in
+//        NavigationView {
+        VStack {
+            SearchFieldComponent(searchText: $drugStore.searchText)
+                .padding(.horizontal)
+            List(drugStore.searchedDrugs) { drug in
                 VStack(alignment: .leading,
                        spacing: 4) {
-                    Text(drug.name)
+                    Text(drug.prettyName)
                         .font(.headline)
                     
                     Text(drug.pharmaceuticalForm)
@@ -32,9 +34,9 @@ struct SearchView: View {
                         .foregroundColor(Color.accent)
                         .padding(.top, 4)
                 }
-                
             }
-            .navigationBarTitle(Text("Médicaments"))
+//                .navigationBarTitle(Text("§Médicaments"))
+//            }
         }
     }
 }

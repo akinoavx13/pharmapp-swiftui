@@ -24,6 +24,12 @@ struct Drug: Identifiable {
     let holders: [String]
     let enhancedMonitoring: String
     
+    var prettyName: String {
+        (name.components(separatedBy: ",").first ?? name)
+            .lowercased()
+            .capitalizeFirstLetter()
+    }
+    
     // MARK: - Lifecycle
     
     init?(row: [String]) {

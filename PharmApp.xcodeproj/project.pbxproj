@@ -16,8 +16,10 @@
 		52BB91032524786500266244 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB91022524786500266244 /* SearchView.swift */; };
 		52BB91052524786700266244 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52BB91042524786700266244 /* Assets.xcassets */; };
 		52BB91082524786700266244 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52BB91072524786700266244 /* Preview Assets.xcassets */; };
+		52C4CB1F2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4CB1E2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift */; };
 		52E953FA2524ABB600033E2E /* DrugStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E953F92524ABB600033E2E /* DrugStore.swift */; };
 		52ECAFE82524DD6200C1B123 /* Color+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ECAFE72524DD6200C1B123 /* Color+Custom.swift */; };
+		52ECAFED2524E07E00C1B123 /* SearchFieldComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ECAFEC2524E07E00C1B123 /* SearchFieldComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +34,10 @@
 		52BB91042524786700266244 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52BB91072524786700266244 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		52BB91092524786700266244 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52C4CB1E2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CapitalizingFirstLetter.swift"; sourceTree = "<group>"; };
 		52E953F92524ABB600033E2E /* DrugStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugStore.swift; sourceTree = "<group>"; };
 		52ECAFE72524DD6200C1B123 /* Color+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Custom.swift"; sourceTree = "<group>"; };
+		52ECAFEC2524E07E00C1B123 /* SearchFieldComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFieldComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 				52BB91002524786500266244 /* PharmAppApp.swift */,
 				523906B62524946D00189D13 /* AppDelegate.swift */,
 				523906E625249C4500189D13 /* Entity */,
+				52ECAFEB2524E06D00C1B123 /* Component */,
 				52ECAFE62524DD5400C1B123 /* Extension */,
 				52D3BA302524A9D1004C3CE3 /* Store */,
 				523906E725249C4E00189D13 /* View */,
@@ -150,8 +155,17 @@
 			isa = PBXGroup;
 			children = (
 				52ECAFE72524DD6200C1B123 /* Color+Custom.swift */,
+				52C4CB1E2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		52ECAFEB2524E06D00C1B123 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				52ECAFEC2524E07E00C1B123 /* SearchFieldComponent.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +264,9 @@
 				52BB91032524786500266244 /* SearchView.swift in Sources */,
 				52ECAFE82524DD6200C1B123 /* Color+Custom.swift in Sources */,
 				523906B22524913E00189D13 /* ImportService.swift in Sources */,
+				52C4CB1F2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift in Sources */,
 				523906B72524946D00189D13 /* AppDelegate.swift in Sources */,
+				52ECAFED2524E07E00C1B123 /* SearchFieldComponent.swift in Sources */,
 				52BB91012524786500266244 /* PharmAppApp.swift in Sources */,
 				52E953FA2524ABB600033E2E /* DrugStore.swift in Sources */,
 				523906E425249C4300189D13 /* Drug.swift in Sources */,
