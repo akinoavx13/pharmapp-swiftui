@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct PharmAppApp: App {
+    // MARK: - Properties
+
+    // swiftlint:disable:next weak_delegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject private var drugStore = DrugStore()
+
+    // MARK: - Body
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SearchView()
+                .environmentObject(drugStore)
         }
     }
 }
