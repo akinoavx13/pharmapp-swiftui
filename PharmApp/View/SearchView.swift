@@ -16,28 +16,23 @@ struct SearchView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            ScrollView {
                 SearchFieldComponent(searchText: $drugStore.searchText)
                     .padding(.horizontal)
-                List(drugStore.searchedDrugs) { drug in
-                    VStack(alignment: .leading,
-                           spacing: 4) {
-                        Text(drug.prettyName)
-                            .font(.headline)
+                    .padding(.bottom)
+                
+                LazyVStack(alignment: .leading) {
+                    ForEach(drugStore.searchedDrugs) { drug in
+                        DrugRowComponent(drug: drug)
+                            .padding(.horizontal)
                         
-                        Text(drug.pharmaceuticalForm)
-                            .font(.callout)
-                            .italic()
-                        
-                        Text(drug.cis)
-                            .font(.caption)
-                            .foregroundColor(Color.accent)
-                            .padding(.top, 4)
+                        Divider()
+                            .background(Color(.secondarySystemBackground))
+                            .padding(.leading)
                     }
                 }
-                .id(UUID())
-                .navigationBarTitle(Text("§Médicaments"))
             }
+            .navigationBarTitle(Text("Title"))
         }
     }
 }
@@ -45,7 +40,14 @@ struct SearchView: View {
 #if DEBUG
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView()
+        Group {
+            SearchView()
+                .preferredColorScheme(.light)
+            
+            SearchView()
+                .preferredColorScheme(.dark)
+        }
+        
             .environmentObject(DrugStore.previewStore)
     }
 }

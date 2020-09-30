@@ -70,6 +70,11 @@ struct Drug: Identifiable {
 
 #if DEBUG
 extension Drug {
+    
+    static let one: Drug = Drug(cis: "12345",
+                                name: "Doliprane",
+                                pharmaceuticalForm: "Comprimé")
+    
     static let list: [Drug] = [
         Drug(cis: "12345",
              name: "Doliprane",
