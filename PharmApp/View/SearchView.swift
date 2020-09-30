@@ -17,9 +17,11 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                SearchFieldComponent(searchText: $drugStore.searchText)
-                    .padding(.horizontal)
-                    .padding(.bottom)
+                SearchFieldComponent(searchText: $drugStore.searchText,
+                                     placeholder: "§Rechercher un médicament")
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 16)
+                    .padding(.top, 8)
                 
                 LazyVStack(alignment: .leading) {
                     ForEach(drugStore.searchedDrugs) { drug in
@@ -32,7 +34,8 @@ struct SearchView: View {
                     }
                 }
             }
-            .navigationBarTitle(Text("Title"))
+            .modifier(DismissingKeyboardOnSwipe())
+            .navigationBarTitle(Text("§Médicaments"))
         }
     }
 }

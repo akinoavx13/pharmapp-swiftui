@@ -30,16 +30,19 @@ final class DrugStore: ObservableObject {
             .debounce(for: .milliseconds(500),
                       scheduler: DispatchQueue.main)
             .removeDuplicates()
-            .filter { !$0.isEmpty }
             .sink(receiveValue: { [weak self] (query) in
                 guard let self = self else { return }
                 
-                self.searchedDrugs = self.drugs
-                    .filter {
-                        $0.name
-                            .lowercased()
-                            .contains(query.lowercased())
-                    }
+                if query.isEmpty {
+                    self.searchedDrugs = self.drugs
+                } else {
+                    self.searchedDrugs = self.drugs
+                        .filter {
+                            $0.name
+                                .lowercased()
+                                .contains(query.lowercased())
+                        }
+                }
             })
     }
     

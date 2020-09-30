@@ -25,7 +25,7 @@ struct SearchFieldComponent: View {
                     .foregroundColor(.primary)
                 
                 Button(action: {
-                    self.searchText = ""
+                    endEditing()
                 }, label: {
                     Image(systemName: "xmark.circle.fill")
                         .opacity(searchText == "" ? 0 : 1)
@@ -38,12 +38,21 @@ struct SearchFieldComponent: View {
             
             if !searchText.isEmpty {
                 Button(action: {
-                    self.searchText = ""
+                    endEditing()
                 }, label: {
                     Text("§Annuler")
                 })
             }
         }
+    }
+    
+    // MARK: - Methods
+    private func endEditing() {
+        UIApplication
+            .shared
+            .endEditing(true)
+        
+        searchText = ""
     }
 }
 

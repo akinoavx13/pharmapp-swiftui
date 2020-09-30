@@ -13,6 +13,8 @@
 		523906DB25249B5100189D13 /* CIS_bdpm.txt in Resources */ = {isa = PBXBuildFile; fileRef = 523906D225249B5100189D13 /* CIS_bdpm.txt */; };
 		523906E425249C4300189D13 /* Drug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523906E325249C4300189D13 /* Drug.swift */; };
 		5255802125250F8300CBC4F8 /* DrugRowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255802025250F8300CBC4F8 /* DrugRowComponent.swift */; };
+		525580252525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525580242525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift */; };
+		525580292525135100CBC4F8 /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525580282525135100CBC4F8 /* UIApplication+EndEditing.swift */; };
 		52BB91012524786500266244 /* PharmAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB91002524786500266244 /* PharmAppApp.swift */; };
 		52BB91032524786500266244 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB91022524786500266244 /* SearchView.swift */; };
 		52BB91052524786700266244 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52BB91042524786700266244 /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 		523906D225249B5100189D13 /* CIS_bdpm.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CIS_bdpm.txt; sourceTree = "<group>"; };
 		523906E325249C4300189D13 /* Drug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drug.swift; sourceTree = "<group>"; };
 		5255802025250F8300CBC4F8 /* DrugRowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugRowComponent.swift; sourceTree = "<group>"; };
+		525580242525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboardOnSwipe.swift; sourceTree = "<group>"; };
+		525580282525135100CBC4F8 /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
 		52BB90FD2524786500266244 /* PharmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PharmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52BB91002524786500266244 /* PharmAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmAppApp.swift; sourceTree = "<group>"; };
 		52BB91022524786500266244 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -94,6 +98,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		525580232525123200CBC4F8 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				525580242525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		52BB90F42524786500266244 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +129,7 @@
 				523906B62524946D00189D13 /* AppDelegate.swift */,
 				523906E625249C4500189D13 /* Entity */,
 				52ECAFEB2524E06D00C1B123 /* Component */,
+				525580232525123200CBC4F8 /* Util */,
 				52ECAFE62524DD5400C1B123 /* Extension */,
 				52D3BA302524A9D1004C3CE3 /* Store */,
 				523906E725249C4E00189D13 /* View */,
@@ -158,6 +171,7 @@
 			children = (
 				52ECAFE72524DD6200C1B123 /* Color+Custom.swift */,
 				52C4CB1E2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift */,
+				525580282525135100CBC4F8 /* UIApplication+EndEditing.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -264,7 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				523906AE2524912D00189D13 /* ImportServiceContract.swift in Sources */,
+				525580292525135100CBC4F8 /* UIApplication+EndEditing.swift in Sources */,
 				52BB91032524786500266244 /* SearchView.swift in Sources */,
+				525580252525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift in Sources */,
 				5255802125250F8300CBC4F8 /* DrugRowComponent.swift in Sources */,
 				52ECAFE82524DD6200C1B123 /* Color+Custom.swift in Sources */,
 				523906B22524913E00189D13 /* ImportService.swift in Sources */,
