@@ -15,28 +15,29 @@ struct SearchView: View {
     // MARK: - Body
     
     var body: some View {
-//        NavigationView {
-        VStack {
-            SearchFieldComponent(searchText: $drugStore.searchText)
-                .padding(.horizontal)
-            List(drugStore.searchedDrugs) { drug in
-                VStack(alignment: .leading,
-                       spacing: 4) {
-                    Text(drug.prettyName)
-                        .font(.headline)
-                    
-                    Text(drug.pharmaceuticalForm)
-                        .font(.callout)
-                        .italic()
-                    
-                    Text(drug.cis)
-                        .font(.caption)
-                        .foregroundColor(Color.accent)
-                        .padding(.top, 4)
+        NavigationView {
+            VStack {
+                SearchFieldComponent(searchText: $drugStore.searchText)
+                    .padding(.horizontal)
+                List(drugStore.searchedDrugs) { drug in
+                    VStack(alignment: .leading,
+                           spacing: 4) {
+                        Text(drug.prettyName)
+                            .font(.headline)
+                        
+                        Text(drug.pharmaceuticalForm)
+                            .font(.callout)
+                            .italic()
+                        
+                        Text(drug.cis)
+                            .font(.caption)
+                            .foregroundColor(Color.accent)
+                            .padding(.top, 4)
+                    }
                 }
+                .id(UUID())
+                .navigationBarTitle(Text("§Médicaments"))
             }
-//                .navigationBarTitle(Text("§Médicaments"))
-//            }
         }
     }
 }

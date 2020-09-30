@@ -11,7 +11,7 @@ struct SearchFieldComponent: View {
     // MARK: - Properties
 
     @Binding var searchText: String
-    var placeholder: LocalizedStringKey = "§Rechercher un médicament"
+    var placeholder: LocalizedStringKey = "§Rechercher"
 
     // MARK: - Body
 
