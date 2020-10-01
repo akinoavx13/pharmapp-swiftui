@@ -21,6 +21,8 @@
 		52BB91032524786500266244 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB91022524786500266244 /* SearchView.swift */; };
 		52BB91052524786700266244 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52BB91042524786700266244 /* Assets.xcassets */; };
 		52BB91082524786700266244 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52BB91072524786700266244 /* Preview Assets.xcassets */; };
+		52BC50A6252649C1002EF986 /* String+ToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BC50A5252649C1002EF986 /* String+ToDate.swift */; };
+		52BC50A9252649ED002EF986 /* Date+ToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BC50A8252649ED002EF986 /* Date+ToString.swift */; };
 		52C4CB1F2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4CB1E2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift */; };
 		52E953FA2524ABB600033E2E /* DrugStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E953F92524ABB600033E2E /* DrugStore.swift */; };
 		52ECAFE82524DD6200C1B123 /* Color+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ECAFE72524DD6200C1B123 /* Color+Custom.swift */; };
@@ -44,6 +46,8 @@
 		52BB91042524786700266244 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52BB91072524786700266244 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		52BB91092524786700266244 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52BC50A5252649C1002EF986 /* String+ToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ToDate.swift"; sourceTree = "<group>"; };
+		52BC50A8252649ED002EF986 /* Date+ToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ToString.swift"; sourceTree = "<group>"; };
 		52C4CB1E2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CapitalizingFirstLetter.swift"; sourceTree = "<group>"; };
 		52E953F92524ABB600033E2E /* DrugStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugStore.swift; sourceTree = "<group>"; };
 		52ECAFE72524DD6200C1B123 /* Color+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Custom.swift"; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 				52C4CB1E2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift */,
 				525580282525135100CBC4F8 /* UIApplication+EndEditing.swift */,
 				5204925B2525CC7500233614 /* View+IsHidden.swift */,
+				52BC50A5252649C1002EF986 /* String+ToDate.swift */,
+				52BC50A8252649ED002EF986 /* Date+ToString.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -284,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				523906AE2524912D00189D13 /* ImportServiceContract.swift in Sources */,
+				52BC50A6252649C1002EF986 /* String+ToDate.swift in Sources */,
 				525580292525135100CBC4F8 /* UIApplication+EndEditing.swift in Sources */,
 				52BB91032524786500266244 /* SearchView.swift in Sources */,
 				525580252525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift in Sources */,
@@ -292,6 +299,7 @@
 				5204925C2525CC7500233614 /* View+IsHidden.swift in Sources */,
 				523906B22524913E00189D13 /* ImportService.swift in Sources */,
 				529C2DB22525FB9300D826CF /* DrugDetailsView.swift in Sources */,
+				52BC50A9252649ED002EF986 /* Date+ToString.swift in Sources */,
 				52C4CB1F2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift in Sources */,
 				523906B72524946D00189D13 /* AppDelegate.swift in Sources */,
 				52ECAFED2524E07E00C1B123 /* SearchFieldComponent.swift in Sources */,

@@ -15,10 +15,10 @@ struct Drug: Identifiable {
     let name: String
     let pharmaceuticalForm: String
     let administrationRoutes: [String]
-    let administrativeStatus: String
-    let procedureType: String
+    let AMMStatus: String
+    let AMMProcedureType: String
     let marketingStatus: String
-    let marketingAuthorizationDate: String
+    let AMMDate: String
     let BDMStatus: String
     let europeanAuthorizationNumber: String
     let holders: [String]
@@ -42,10 +42,10 @@ struct Drug: Identifiable {
             .components(separatedBy: ";")
             .map { Drug.format(text: $0) } :
             []
-        administrativeStatus = row.count >= 5 ? Drug.format(text: row[4]) : ""
-        procedureType = row.count >= 6 ? Drug.format(text: row[5]) : ""
+        AMMStatus = row.count >= 5 ? Drug.format(text: row[4]) : ""
+        AMMProcedureType = row.count >= 6 ? Drug.format(text: row[5]) : ""
         marketingStatus = row.count >= 7 ? Drug.format(text: row[6]) : ""
-        marketingAuthorizationDate = row.count >= 8 ? Drug.format(text: row[7]) : ""
+        AMMDate = row.count >= 8 ? Drug.format(text: row[7]) : ""
         BDMStatus = row.count >= 9 ? Drug.format(text: row[8]) : ""
         europeanAuthorizationNumber = row.count >= 10 ? Drug.format(text: row[9]) : ""
         holders = row.count >= 11 ?
