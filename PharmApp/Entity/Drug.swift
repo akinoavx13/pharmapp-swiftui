@@ -26,16 +26,8 @@ struct Drug: Identifiable {
     
     var prettyName: String {
         (name.components(separatedBy: ",").first ?? name)
-            .lowercased()
-            .capitalizeFirstLetter()
-            .trimmingCharacters(in: .whitespacesAndNewlines)
     }
-    
-    var prettyPharmaceuticalForm: String {
-        pharmaceuticalForm
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-    }
-    
+        
     // MARK: - Lifecycle
     
     init?(row: [String]) {
@@ -43,54 +35,85 @@ struct Drug: Identifiable {
             cis = row[0]
         } else { return nil }
         
-        name = row.count >= 2 ? row[1] : ""
-        pharmaceuticalForm = row.count >= 3 ? row[2] : ""
-        administrationRoutes = row.count >= 4 ? row[3].components(separatedBy: ";") : []
-        administrativeStatus = row.count >= 5 ? row[4] : ""
-        procedureType = row.count >= 6 ? row[5] : ""
-        marketingStatus = row.count >= 7 ? row[6] : ""
-        marketingAuthorizationDate = row.count >= 8 ? row[7] : ""
-        BDMStatus = row.count >= 9 ? row[8] : ""
-        europeanAuthorizationNumber = row.count >= 10 ? row[9] : ""
-        holders = row.count >= 11 ? row[10].components(separatedBy: ";") : []
-        enhancedMonitoring = row.count >= 12 ? row[11] : ""
+        name = row.count >= 2 ? Drug.format(text: row[1]) : ""
+        pharmaceuticalForm = row.count >= 3 ? Drug.format(text: row[2]) : ""
+        administrationRoutes = row.count >= 4 ?
+            row[3]
+            .components(separatedBy: ";")
+            .map { Drug.format(text: $0) } :
+            []
+        administrativeStatus = row.count >= 5 ? Drug.format(text: row[4]) : ""
+        procedureType = row.count >= 6 ? Drug.format(text: row[5]) : ""
+        marketingStatus = row.count >= 7 ? Drug.format(text: row[6]) : ""
+        marketingAuthorizationDate = row.count >= 8 ? Drug.format(text: row[7]) : ""
+        BDMStatus = row.count >= 9 ? Drug.format(text: row[8]) : ""
+        europeanAuthorizationNumber = row.count >= 10 ? Drug.format(text: row[9]) : ""
+        holders = row.count >= 11 ?
+            row[10]
+            .components(separatedBy: ";")
+            .map { Drug.format(text: $0) }:
+            []
+        enhancedMonitoring = row.count >= 12 ? Drug.format(text: row[11]) : ""
     }
     
-    init(cis: String,
-         name: String,
-         pharmaceuticalForm: String) {
-        self.cis = cis
-        self.name = name
-        self.pharmaceuticalForm = pharmaceuticalForm
-        administrationRoutes = []
-        administrativeStatus = ""
-        procedureType = ""
-        marketingStatus = ""
-        marketingAuthorizationDate = ""
-        BDMStatus = ""
-        europeanAuthorizationNumber = ""
-        holders = []
-        enhancedMonitoring = ""
+    // MARK: - Methods
+    private static func format(text: String) -> String {
+        text
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .lowercased()
+            .capitalizeFirstLetter()
     }
 }
 
 #if DEBUG
 extension Drug {
     
-    static let one: Drug = Drug(cis: "12345",
-                                name: "Doliprane",
-                                pharmaceuticalForm: "Comprimé")
+    static let one: Drug = Drug(row: ["61266250",
+                                      "A 313 200 000 UI POUR CENT, pommade",
+                                      "pommade",
+                                      "cutanée",
+                                      "Autorisation active",
+                                      "Procédure nationale",
+                                      "Commercialisée",
+                                      "12/03/1998",
+                                      "PHARMA DEVELOPPEMENT",
+                                      "Non",
+                                      "SANOFI AVENTIS FRANCE;EG LABO - LABORATOIRES EUROGENERICS"])!
     
     static let list: [Drug] = [
-        Drug(cis: "12345",
-             name: "Doliprane",
-             pharmaceuticalForm: "Comprimé"),
-        Drug(cis: "098765",
-             name: "Abilify",
-             pharmaceuticalForm: "Comprimé"),
-        Drug(cis: "098765",
-             name: "Accofil",
-             pharmaceuticalForm: "Comprimé")
+        Drug(row: ["61266250",
+                   "A 313 200 000 UI POUR CENT, pommade",
+                   "pommade",
+                   "cutanée",
+                   "Autorisation active",
+                   "Procédure nationale",
+                   "Commercialisée",
+                   "12/03/1998",
+                   "PHARMA DEVELOPPEMENT",
+                   "Non",
+                   "SANOFI AVENTIS FRANCE;EG LABO - LABORATOIRES EUROGENERICS"])!,
+        Drug(row: ["62869109",
+                   "A 313 50 000 U.I., capsule molle",
+                   "capsule molle",
+                   "orale",
+                   "Autorisation active",
+                   "Procédure nationale",
+                   "Commercialisée",
+                   "07/07/1997",
+                   "PHARMA DEVELOPPEMENT",
+                   "Non",
+                   "SANOFI AVENTIS FRANCE;EG LABO - LABORATOIRES EUROGENERICS"])!,
+        Drug(row: ["62401060",
+                   "ABACAVIR MYLAN 300 mg, comprimé pelliculé sécable",
+                   "comprimé pelliculé sécable",
+                   "orale",
+                   "Autorisation active",
+                   "ProcÈdure nationale",
+                   "CommercialisÈe",
+                   "21/02/2018",
+                   "MYLAN SAS",
+                   "Non",
+                   "SANOFI AVENTIS FRANCE"])!
     ]
 }
 #endif

@@ -20,7 +20,7 @@ struct DrugRowComponent: View {
                 Text(drug.prettyName)
                     .font(.headline)
                 
-                Text(drug.prettyPharmaceuticalForm)
+                Text(drug.pharmaceuticalForm)
                     .font(.callout)
                     .italic()
                 

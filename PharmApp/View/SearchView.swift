@@ -25,7 +25,7 @@ struct SearchView: View {
                 LazyVStack(alignment: .leading) {
                     ForEach(drugStore.searchedDrugs) { drug in
                         NavigationLink(
-                            destination: Text("ok"),
+                            destination: DrugDetailsView(drug: drug),
                             label: {
                                 DrugRowComponent(drug: drug)
                                     .padding(.horizontal)
@@ -56,7 +56,6 @@ struct SearchView_Previews: PreviewProvider {
                              .accessibilityExtraExtraExtraLarge)
                 .preferredColorScheme(.dark)
         }
-        
         .environmentObject(DrugStore.previewStore)
     }
 }
