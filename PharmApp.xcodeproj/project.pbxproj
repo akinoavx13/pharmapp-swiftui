@@ -235,11 +235,10 @@
 			};
 			buildConfigurationList = 52BB90F82524786500266244 /* Build configuration list for PBXProject "PharmApp" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			developmentRegion = fr;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
-				Base,
+				fr,
 			);
 			mainGroup = 52BB90F42524786500266244;
 			productRefGroup = 52BB90FE2524786500266244 /* Products */;
