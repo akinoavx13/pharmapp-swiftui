@@ -9,11 +9,11 @@ import SwiftUI
 
 struct SearchView: View {
     // MARK: - Properties
-    
+
     @EnvironmentObject private var drugStore: DrugStore
-    
+
     // MARK: - Body
-    
+
     var body: some View {
         NavigationView {
             ScrollView {
@@ -21,7 +21,7 @@ struct SearchView: View {
                                      placeholder: "Doliprane, Spasfon ...")
                     .padding(.horizontal)
                     .padding(.bottom)
-                
+
                 LazyVStack(alignment: .leading) {
                     ForEach(drugStore.searchedDrugs) { drug in
                         NavigationLink(
@@ -29,9 +29,10 @@ struct SearchView: View {
                             label: {
                                 DrugRowComponent(drug: drug)
                                     .padding(.horizontal)
-                            })
-                            .buttonStyle(PlainButtonStyle())
-                        
+                            }
+                        )
+                        .buttonStyle(PlainButtonStyle())
+
                         Divider()
                             .background(Color(.secondarySystemBackground))
                             .padding(.leading)
@@ -45,18 +46,18 @@ struct SearchView: View {
 }
 
 #if DEBUG
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            SearchView()
-                .preferredColorScheme(.light)
-            
-            SearchView()
-                .environment(\.sizeCategory,
-                             .accessibilityExtraExtraExtraLarge)
-                .preferredColorScheme(.dark)
+    struct SearchView_Previews: PreviewProvider {
+        static var previews: some View {
+            Group {
+                SearchView()
+                    .preferredColorScheme(.light)
+
+                SearchView()
+                    .environment(\.sizeCategory,
+                                 .accessibilityExtraExtraExtraLarge)
+                    .preferredColorScheme(.dark)
+            }
+            .environmentObject(DrugStore.previewStore)
         }
-        .environmentObject(DrugStore.previewStore)
     }
-}
 #endif

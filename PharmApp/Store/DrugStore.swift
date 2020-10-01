@@ -11,28 +11,28 @@ import Foundation
 enum DrugStoreAction {}
 
 final class DrugStore: ObservableObject {
-    
     // MARK: - Properties
+
     @Published var drugs: [Drug]
     @Published var searchedDrugs: [Drug]
     @Published var searchText: String = ""
-    
+
     private var searchCancellable: AnyCancellable?
-    
+
     // MARK: - Lifecycle
-    
+
     init(drugs: [Drug] = ImportService.shared.drugs) {
         self.drugs = drugs
-        self.searchedDrugs = drugs
-        
+        searchedDrugs = drugs
+
         searchCancellable = $searchText
             .subscribe(on: DispatchQueue.global())
             .debounce(for: .milliseconds(500),
                       scheduler: DispatchQueue.main)
             .removeDuplicates()
-            .sink(receiveValue: { [weak self] (query) in
+            .sink(receiveValue: { [weak self] query in
                 guard let self = self else { return }
-                
+
                 if query.isEmpty {
                     self.searchedDrugs = self.drugs
                 } else {
@@ -45,14 +45,14 @@ final class DrugStore: ObservableObject {
                 }
             })
     }
-    
+
     // MARK: - Methods
-    
-    func dispatch(action: DrugStoreAction) {}
+
+    func dispatch(action _: DrugStoreAction) {}
 }
 
 #if DEBUG
-extension DrugStore {
-    static let previewStore = DrugStore(drugs: Drug.list)
-}
+    extension DrugStore {
+        static let previewStore = DrugStore(drugs: Drug.list)
+    }
 #endif

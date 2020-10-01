@@ -9,7 +9,8 @@ protocol ImportServiceContract {
     // MARK: - Properties
 
     var drugs: [Drug] { get }
-    
+
     // MARK: - Methods
+
     func loadItems()
 }

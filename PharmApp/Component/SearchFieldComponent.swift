@@ -9,39 +9,39 @@ import SwiftUI
 
 struct SearchFieldComponent: View {
     // MARK: - Properties
-    
+
     @Binding var searchText: String
     var placeholder: LocalizedStringKey = "§Rechercher"
-    
+
     // MARK: - Body
-    
+
     var body: some View {
         HStack {
             HStack {
                 Image(systemName: "magnifyingglass")
                     .accessibility(hidden: true)
-                
+
                 TextField(placeholder,
                           text: $searchText)
                     .foregroundColor(.primary)
                     .frame(minWidth: 44,
                            minHeight: 44)
                     .accessibility(label: Text("§Rechercher un médicament"))
-                
+
                 Button(action: {
                     endEditing()
                 }, label: {
                     Image(systemName: "xmark.circle.fill")
                 })
-                .isHidden(searchText.isEmpty,
-                          remove: true)
-                .accessibility(label: Text("§Effacer la recherche"))
+                    .isHidden(searchText.isEmpty,
+                              remove: true)
+                    .accessibility(label: Text("§Effacer la recherche"))
             }
             .padding(.horizontal)
             .foregroundColor(.secondary)
             .background(Color(.secondarySystemBackground))
             .mask(RoundedRectangle(cornerRadius: 10))
-            
+
             if !searchText.isEmpty {
                 Button(action: {
                     endEditing()
@@ -51,32 +51,33 @@ struct SearchFieldComponent: View {
             }
         }
     }
-    
+
     // MARK: - Methods
+
     private func endEditing() {
         UIApplication
             .shared
             .endEditing(true)
-        
+
         searchText = ""
     }
 }
 
 #if DEBUG
-struct SearchFieldComponent_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            SearchFieldComponent(searchText: .constant("Doliprane"))
-            
-            SearchFieldComponent(searchText: .constant(""),
-                                 placeholder: "Rechercher un médicament")
-                .environment(\.sizeCategory,
-                             .accessibilityExtraExtraExtraLarge)
-            
-            SearchFieldComponent(searchText: .constant("Doliprane"))
-                .preferredColorScheme(.dark)
+    struct SearchFieldComponent_Previews: PreviewProvider {
+        static var previews: some View {
+            Group {
+                SearchFieldComponent(searchText: .constant("Doliprane"))
+
+                SearchFieldComponent(searchText: .constant(""),
+                                     placeholder: "Rechercher un médicament")
+                    .environment(\.sizeCategory,
+                                 .accessibilityExtraExtraExtraLarge)
+
+                SearchFieldComponent(searchText: .constant("Doliprane"))
+                    .preferredColorScheme(.dark)
+            }
+            .previewLayout(.fixed(width: 375, height: 100))
         }
-        .previewLayout(.fixed(width: 375, height: 100))
     }
-}
 #endif
