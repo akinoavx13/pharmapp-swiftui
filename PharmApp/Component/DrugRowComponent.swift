@@ -32,6 +32,11 @@ struct DrugRowComponent: View {
             }
             
             Spacer()
+            
+            Image(systemName: "chevron.right")
+                .foregroundColor(Color(.systemGray2))
+                .padding(.leading)
+                .accessibility(hidden: true)
         }
         .accessibilityElement(children: .combine)
     }

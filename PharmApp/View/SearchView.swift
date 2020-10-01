@@ -24,8 +24,13 @@ struct SearchView: View {
                 
                 LazyVStack(alignment: .leading) {
                     ForEach(drugStore.searchedDrugs) { drug in
-                        DrugRowComponent(drug: drug)
-                            .padding(.horizontal)
+                        NavigationLink(
+                            destination: Text("ok"),
+                            label: {
+                                DrugRowComponent(drug: drug)
+                                    .padding(.horizontal)
+                            })
+                            .buttonStyle(PlainButtonStyle())
                         
                         Divider()
                             .background(Color(.secondarySystemBackground))
