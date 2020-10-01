@@ -24,6 +24,8 @@ struct SearchFieldComponent: View {
                 TextField(placeholder,
                           text: $searchText)
                     .foregroundColor(.primary)
+                    .frame(minWidth: 44,
+                           minHeight: 44)
                     .accessibility(label: Text("§Rechercher un médicament"))
                 
                 Button(action: {
@@ -35,7 +37,7 @@ struct SearchFieldComponent: View {
                           remove: true)
                 .accessibility(label: Text("§Effacer la recherche"))
             }
-            .padding(8)
+            .padding(.horizontal)
             .foregroundColor(.secondary)
             .background(Color(.secondarySystemBackground))
             .mask(RoundedRectangle(cornerRadius: 10))
