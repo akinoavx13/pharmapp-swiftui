@@ -28,10 +28,12 @@ struct DrugRowComponent: View {
                     .font(.caption)
                     .foregroundColor(Color.accent)
                     .padding(.top, 4)
+                    .accessibility(hidden: true)
             }
             
             Spacer()
         }
+        .accessibilityElement(children: .combine)
     }
 }
 

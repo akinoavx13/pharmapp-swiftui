@@ -19,10 +19,12 @@ struct SearchFieldComponent: View {
         HStack {
             HStack {
                 Image(systemName: "magnifyingglass")
+                    .accessibility(hidden: true)
                 
                 TextField(placeholder,
                           text: $searchText)
                     .foregroundColor(.primary)
+                    .accessibility(label: Text("§Rechercher un médicament"))
                 
                 Button(action: {
                     endEditing()
@@ -31,6 +33,7 @@ struct SearchFieldComponent: View {
                 })
                 .isHidden(searchText.isEmpty,
                           remove: true)
+                .accessibility(label: Text("§Effacer la recherche"))
             }
             .padding(8)
             .foregroundColor(.secondary)
