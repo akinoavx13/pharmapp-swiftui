@@ -18,10 +18,9 @@ struct SearchView: View {
         NavigationView {
             ScrollView {
                 SearchFieldComponent(searchText: $drugStore.searchText,
-                                     placeholder: "§Rechercher un médicament")
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 16)
-                    .padding(.top, 8)
+                                     placeholder: "Doliprane, Spasfon ...")
+                    .padding(.horizontal)
+                    .padding(.bottom)
                 
                 LazyVStack(alignment: .leading) {
                     ForEach(drugStore.searchedDrugs) { drug in
@@ -48,10 +47,12 @@ struct SearchView_Previews: PreviewProvider {
                 .preferredColorScheme(.light)
             
             SearchView()
+                .environment(\.sizeCategory,
+                             .accessibilityExtraExtraExtraLarge)
                 .preferredColorScheme(.dark)
         }
         
-            .environmentObject(DrugStore.previewStore)
+        .environmentObject(DrugStore.previewStore)
     }
 }
 #endif

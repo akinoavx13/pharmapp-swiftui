@@ -28,8 +28,9 @@ struct SearchFieldComponent: View {
                     endEditing()
                 }, label: {
                     Image(systemName: "xmark.circle.fill")
-                        .opacity(searchText == "" ? 0 : 1)
                 })
+                .isHidden(searchText.isEmpty,
+                          remove: true)
             }
             .padding(8)
             .foregroundColor(.secondary)
@@ -62,12 +63,15 @@ struct SearchFieldComponent_Previews: PreviewProvider {
         Group {
             SearchFieldComponent(searchText: .constant("Doliprane"))
             
-            SearchFieldComponent(searchText: .constant(""))
+            SearchFieldComponent(searchText: .constant(""),
+                                 placeholder: "Rechercher un médicament")
+                .environment(\.sizeCategory,
+                             .accessibilityExtraExtraExtraLarge)
             
             SearchFieldComponent(searchText: .constant("Doliprane"))
                 .preferredColorScheme(.dark)
         }
-        .previewLayout(.fixed(width: 375, height: 55))
+        .previewLayout(.fixed(width: 375, height: 100))
     }
 }
 #endif

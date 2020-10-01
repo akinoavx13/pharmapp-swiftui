@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5204925C2525CC7500233614 /* View+IsHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5204925B2525CC7500233614 /* View+IsHidden.swift */; };
 		523906AE2524912D00189D13 /* ImportServiceContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523906AD2524912D00189D13 /* ImportServiceContract.swift */; };
 		523906B22524913E00189D13 /* ImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523906B12524913E00189D13 /* ImportService.swift */; };
 		523906B72524946D00189D13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523906B62524946D00189D13 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5204925B2525CC7500233614 /* View+IsHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+IsHidden.swift"; sourceTree = "<group>"; };
 		523906AD2524912D00189D13 /* ImportServiceContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportServiceContract.swift; sourceTree = "<group>"; };
 		523906B12524913E00189D13 /* ImportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportService.swift; sourceTree = "<group>"; };
 		523906B62524946D00189D13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				52ECAFE72524DD6200C1B123 /* Color+Custom.swift */,
 				52C4CB1E2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift */,
 				525580282525135100CBC4F8 /* UIApplication+EndEditing.swift */,
+				5204925B2525CC7500233614 /* View+IsHidden.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				525580252525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift in Sources */,
 				5255802125250F8300CBC4F8 /* DrugRowComponent.swift in Sources */,
 				52ECAFE82524DD6200C1B123 /* Color+Custom.swift in Sources */,
+				5204925C2525CC7500233614 /* View+IsHidden.swift in Sources */,
 				523906B22524913E00189D13 /* ImportService.swift in Sources */,
 				52C4CB1F2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift in Sources */,
 				523906B72524946D00189D13 /* AppDelegate.swift in Sources */,
