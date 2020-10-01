@@ -28,6 +28,27 @@ struct Drug: Identifiable {
         (name.components(separatedBy: ",").first ?? name)
     }
 
+    var isMarketingStatusPositive: Bool {
+        !marketingStatus
+            .lowercased()
+            .contains("non")
+    }
+
+    var isAMMStatusPositive: Bool {
+        AMMStatus
+            .lowercased()
+            .contains("active")
+    }
+
+    var isBDMStatusPositive: Bool {
+        !(BDMStatus.lowercased().contains("alerte") ||
+            BDMStatus.lowercased().contains("warning"))
+    }
+
+    var isEnhancedMonitoring: Bool {
+        enhancedMonitoring.lowercased() == "oui"
+    }
+
     // MARK: - Lifecycle
 
     init?(row: [String]) {

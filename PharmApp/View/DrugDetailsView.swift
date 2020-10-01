@@ -18,7 +18,7 @@ struct DrugDetailsView: View {
         Form {
             if
                 !drug.enhancedMonitoring.isEmpty &&
-                drug.enhancedMonitoring == "Oui"
+                drug.isEnhancedMonitoring
             {
                 Section {
                     HStack {
@@ -57,15 +57,13 @@ struct DrugDetailsView: View {
             }
 
             Section(header: Text("§Statut")) {
-                makeStatusRowView(iconSystemName: "checkmark.circle.fill",
-                                  accentColor: .green,
-                                  title: "§État de commercialisation",
-                                  value: drug.marketingStatus)
+                makeStatusRowView(title: "§État de commercialisation",
+                                  value: drug.marketingStatus,
+                                  isPositive: drug.isMarketingStatusPositive)
 
-                makeStatusRowView(iconSystemName: "checkmark.circle.fill",
-                                  accentColor: .green,
-                                  title: "§Autorisation de mise sur le marché",
+                makeStatusRowView(title: "§Autorisation de mise sur le marché",
                                   value: drug.AMMStatus,
+                                  isPositive: drug.isAMMStatusPositive,
                                   subtitle: drug
                                       .AMMDate
                                       .toDate(from: "dd/mm/yyy")?
@@ -73,10 +71,9 @@ struct DrugDetailsView: View {
                                                 timeStyle: .none))
 
                 if !drug.BDMStatus.isEmpty {
-                    makeStatusRowView(iconSystemName: "checkmark.circle.fill",
-                                      accentColor: .green,
-                                      title: "§Statut Bases de données sur les Médicaments",
-                                      value: drug.BDMStatus)
+                    makeStatusRowView(title: "§Statut Bases de données sur les Médicaments",
+                                      value: drug.BDMStatus,
+                                      isPositive: drug.isBDMStatusPositive)
                 }
             }
 
@@ -111,15 +108,14 @@ struct DrugDetailsView: View {
         }
     }
 
-    private func makeStatusRowView(iconSystemName: String,
-                                   accentColor: Color,
-                                   title: String,
+    private func makeStatusRowView(title: String,
                                    value: String,
+                                   isPositive: Bool,
                                    subtitle: String? = nil) -> some View
     {
         HStack {
-            Image(systemName: iconSystemName)
-                .foregroundColor(accentColor)
+            Image(systemName: isPositive ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
+                .foregroundColor(isPositive ? .green : .red)
 
             VStack(alignment: .leading,
                    spacing: 4) {
@@ -127,7 +123,7 @@ struct DrugDetailsView: View {
 
                 Text(value)
                     .font(.callout)
-                    .foregroundColor(accentColor)
+                    .foregroundColor(isPositive ? .green : .red)
 
                 subtitle.map {
                     Text($0)
