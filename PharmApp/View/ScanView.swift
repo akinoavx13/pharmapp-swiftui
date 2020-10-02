@@ -45,6 +45,9 @@ struct ScanView: View {
     private func handleScan(result: Result<String, ScannerError>) {
         switch result {
         case let .success(code):
+            UIImpactFeedbackGenerator(style: .heavy)
+                .impactOccurred()
+
             print("QR code is: \(code)")
         case let .failure(error):
             print("Error: \(error)")

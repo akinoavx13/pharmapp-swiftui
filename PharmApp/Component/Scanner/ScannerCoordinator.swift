@@ -33,7 +33,6 @@ class ScannerCoordinator: NSObject, AVCaptureMetadataOutputObjectsDelegate {
             !isCodeFound
         else { return }
 
-        AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
         found(code: stringValue)
     }
 
