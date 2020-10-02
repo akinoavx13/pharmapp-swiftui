@@ -44,7 +44,7 @@ struct ScanView: View {
             }
             .foregroundColor(.accent)
         }
-        .edgesIgnoringSafeArea(.top)
+        .edgesIgnoringSafeArea([.top, .horizontal])
         .alert(isPresented: $isAlertPresented) {
             Alert(title: Text("§Erreur"),
                   message: Text("§Une erreur est survenue, veuillez réessayer."),

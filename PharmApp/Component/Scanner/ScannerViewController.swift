@@ -140,6 +140,11 @@ import UIKit
                 delegate?.didFail(reason: .badOutput)
                 return
             }
+
+            previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+            previewLayer.frame = view.layer.bounds
+            previewLayer.videoGravity = .resizeAspectFill
+            view.layer.addSublayer(previewLayer)
         }
 
         override func viewWillAppear(_ animated: Bool) {
@@ -153,19 +158,11 @@ import UIKit
         override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
 
-            previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            previewLayer.frame = view.layer.bounds
-            previewLayer.videoGravity = .resizeAspectFill
-
-            view.layer.addSublayer(previewLayer)
-
             updateOrientation()
-
-            captureSession.startRunning()
         }
 
-        override func viewDidDisappear(_ animated: Bool) {
-            super.viewDidDisappear(animated)
+        override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
 
             if captureSession?.isRunning == true {
                 captureSession.stopRunning()
