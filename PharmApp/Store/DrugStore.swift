@@ -57,32 +57,48 @@ final class DrugStore: ObservableObject {
     func dispatch(action: DrugStoreAction) {
         switch action {
         case let .findDrugAfterScan(code):
-            extract(code: code)
+            foundDrug(fromScanCode: code)
         case .closeDrugDetailsAfterScan:
             scannedDrug = nil
             shouldRestartScanProcess = true
         }
     }
 
-    private func extract(code: String) {
-        let startIndex = code.index(code.startIndex, offsetBy: 4)
-        let endIndex = code.index(code.startIndex, offsetBy: 17)
-        let cip13 = code[startIndex ..< endIndex]
+    private func foundDrug(fromScanCode code: String) {
+        let cip13 = extractCIP13(from: code)
+        let drug = foundDrug(cip13: cip13)
 
-        let drugBox = ImportService
-            .shared
-            .drugBoxes
-            .first(where: { $0.cip13 == cip13 })
-        let drug = drugs
-            .first(where: { $0.cis == drugBox?.cis })
-
-        if let scannedDrug = drug {
+        if let drug = drug {
             shouldRestartScanProcess = false
 
             UIImpactFeedbackGenerator(style: .heavy)
                 .impactOccurred()
-            self.scannedDrug = scannedDrug
+            scannedDrug = drug
         }
+    }
+
+    private func foundDrug(cip13: String) -> Drug? {
+        let drugBox = ImportService
+            .shared
+            .drugBoxes
+            .first(where: { $0.cip13 == cip13 })
+
+        let drug = drugs
+            .first(where: { $0.cis == drugBox?.cis })
+
+        return drug
+    }
+
+    private func extractCIP13(from code: String) -> String {
+        if code.count >= 17 {
+            let startIndex = code.index(code.startIndex, offsetBy: 4)
+            let endIndex = code.index(code.startIndex, offsetBy: 17)
+            let cip13 = code[startIndex ..< endIndex]
+
+            return String(cip13)
+        }
+
+        return code
     }
 }
 

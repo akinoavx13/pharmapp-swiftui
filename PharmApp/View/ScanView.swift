@@ -17,7 +17,17 @@ struct ScanView: View {
 
     var body: some View {
         ZStack {
-            ScannerComponent(codeTypes: [.dataMatrix],
+            ScannerComponent(codeTypes: [.dataMatrix,
+                                         .ean8,
+                                         .ean13,
+                                         .pdf417,
+                                         .code128,
+                                         .code39,
+                                         .code39Mod43,
+                                         .code93,
+                                         .interleaved2of5,
+                                         .itf14,
+                                         .upce],
                              shouldRestartScanProcess: drugStore.shouldRestartScanProcess,
                              simulatedData: "\u{1D}01034009359558381723063010AX411",
                              completion: handleScan(result:))
@@ -31,7 +41,7 @@ struct ScanView: View {
                            height: 150)
 
                 Spacer()
-                Text("§Placez le code barre de la boite du médicament dans le cadre. Pour une meilleure efficacité, placer le code barre droit.")
+                Text("§Placez la cible dans le cadre. Pour une meilleure efficacité, placez la cible droite.")
                     .italic()
                     .font(.caption)
                     .padding()
