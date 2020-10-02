@@ -108,6 +108,7 @@ import UIKit
 
             view.backgroundColor = UIColor.black
             captureSession = AVCaptureSession()
+            captureSession.sessionPreset = .high
 
             guard
                 let videoCaptureDevice = AVCaptureDevice.default(for: .video)
