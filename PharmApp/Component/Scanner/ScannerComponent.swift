@@ -15,15 +15,19 @@ struct ScannerComponent: UIViewControllerRepresentable {
     var simulatedData = ""
     var completion: (Result<String, ScannerError>) -> Void
 
+    var shouldRestartScanProcess: Bool
+
     // MARK: - Lifecycle
 
     init(codeTypes: [AVMetadataObject.ObjectType],
+         shouldRestartScanProcess: Bool,
          simulatedData: String = "",
          completion: @escaping (Result<String, ScannerError>) -> Void)
     {
         self.codeTypes = codeTypes
         self.simulatedData = simulatedData
         self.completion = completion
+        self.shouldRestartScanProcess = shouldRestartScanProcess
     }
 
     // MARK: - Methods
@@ -40,13 +44,19 @@ struct ScannerComponent: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_: ScannerViewController,
-                                context _: Context) {}
+                                context: Context)
+    {
+        if shouldRestartScanProcess {
+            context.coordinator.restartScanProcess()
+        }
+    }
 }
 
 #if DEBUG
     struct ScannerComponent_Previews: PreviewProvider {
         static var previews: some View {
-            ScannerComponent(codeTypes: [.qr]) { _ in }
+            ScannerComponent(codeTypes: [.qr],
+                             shouldRestartScanProcess: false) { _ in }
         }
     }
 #endif

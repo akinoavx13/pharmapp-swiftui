@@ -18,7 +18,8 @@ struct ScanView: View {
     var body: some View {
         ZStack {
             ScannerComponent(codeTypes: [.dataMatrix],
-                             simulatedData: "01034009359558381723063010AX411",
+                             shouldRestartScanProcess: drugStore.shouldRestartScanProcess,
+                             simulatedData: "\u{1D}01034009359558381723063010AX411",
                              completion: handleScan(result:))
 
             VStack {
@@ -50,11 +51,13 @@ struct ScanView: View {
                   message: Text("§Une erreur est survenue, veuillez réessayer."),
                   dismissButton: .default(Text("§Compris !")))
         }
-        .sheet(isPresented: .constant(drugStore.scannedDrug != nil)) {
-            drugStore.scannedDrug.map {
-                DrugDetailsView(drug: $0)
-            }
-        }
+        .sheet(isPresented: .constant(drugStore.scannedDrug != nil),
+               onDismiss: { drugStore.dispatch(action: .closeDrugDetailsAfterScan) },
+               content: {
+                   drugStore.scannedDrug.map {
+                       DrugDetailsView(drug: $0)
+                   }
+               })
     }
 
     // MARK: - Methods

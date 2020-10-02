@@ -45,4 +45,8 @@ class ScannerCoordinator: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     func didFail(reason: ScannerError) {
         parent.completion(.failure(reason))
     }
+
+    func restartScanProcess() {
+        isCodeFound = false
+    }
 }

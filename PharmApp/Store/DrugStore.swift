@@ -11,6 +11,7 @@ import UIKit
 
 enum DrugStoreAction {
     case findDrugAfterScan(code: String)
+    case closeDrugDetailsAfterScan
 }
 
 final class DrugStore: ObservableObject {
@@ -18,6 +19,7 @@ final class DrugStore: ObservableObject {
 
     @Published var drugs: [Drug]
     @Published var scannedDrug: Drug?
+    @Published var shouldRestartScanProcess: Bool = false
     @Published var searchedDrugs: [Drug]
     @Published var searchText: String = ""
 
@@ -56,6 +58,9 @@ final class DrugStore: ObservableObject {
         switch action {
         case let .findDrugAfterScan(code):
             extract(code: code)
+        case .closeDrugDetailsAfterScan:
+            scannedDrug = nil
+            shouldRestartScanProcess = true
         }
     }
 
@@ -72,6 +77,8 @@ final class DrugStore: ObservableObject {
             .first(where: { $0.cis == drugBox?.cis })
 
         if let scannedDrug = drug {
+            shouldRestartScanProcess = false
+
             UIImpactFeedbackGenerator(style: .heavy)
                 .impactOccurred()
             self.scannedDrug = scannedDrug
