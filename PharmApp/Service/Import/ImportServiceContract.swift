@@ -9,6 +9,7 @@ protocol ImportServiceContract {
     // MARK: - Properties
 
     var drugs: [Drug] { get }
+    var drugBoxes: [DrugBox] { get }
 
     // MARK: - Methods
 

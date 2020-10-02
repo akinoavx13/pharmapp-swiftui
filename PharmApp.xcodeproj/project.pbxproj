@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5204925C2525CC7500233614 /* View+IsHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5204925B2525CC7500233614 /* View+IsHidden.swift */; };
+		52210B5A25276A150082CF18 /* DrugBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52210B5925276A150082CF18 /* DrugBox.swift */; };
+		52210B5D25276C5B0082CF18 /* CIS_CIP_bdpm.txt in Resources */ = {isa = PBXBuildFile; fileRef = 52210B5C25276C5B0082CF18 /* CIS_CIP_bdpm.txt */; };
 		523906AE2524912D00189D13 /* ImportServiceContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523906AD2524912D00189D13 /* ImportServiceContract.swift */; };
 		523906B22524913E00189D13 /* ImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523906B12524913E00189D13 /* ImportService.swift */; };
 		523906B72524946D00189D13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523906B62524946D00189D13 /* AppDelegate.swift */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		5204925B2525CC7500233614 /* View+IsHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+IsHidden.swift"; sourceTree = "<group>"; };
+		52210B5925276A150082CF18 /* DrugBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugBox.swift; sourceTree = "<group>"; };
+		52210B5C25276C5B0082CF18 /* CIS_CIP_bdpm.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CIS_CIP_bdpm.txt; sourceTree = "<group>"; };
 		523906AD2524912D00189D13 /* ImportServiceContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportServiceContract.swift; sourceTree = "<group>"; };
 		523906B12524913E00189D13 /* ImportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportService.swift; sourceTree = "<group>"; };
 		523906B62524946D00189D13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 		523906962524908900189D13 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				52210B5C25276C5B0082CF18 /* CIS_CIP_bdpm.txt */,
 				523906D225249B5100189D13 /* CIS_bdpm.txt */,
 			);
 			path = Database;
@@ -106,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				523906E325249C4300189D13 /* Drug.swift */,
+				52210B5925276A150082CF18 /* DrugBox.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -281,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52210B5D25276C5B0082CF18 /* CIS_CIP_bdpm.txt in Resources */,
 				523906DB25249B5100189D13 /* CIS_bdpm.txt in Resources */,
 				5297B23E2527557A00562477 /* InfoPlist.strings in Resources */,
 				52BB91082524786700266244 /* Preview Assets.xcassets in Resources */,
@@ -350,6 +357,7 @@
 				529C2DB22525FB9300D826CF /* DrugDetailsView.swift in Sources */,
 				52BC50A9252649ED002EF986 /* Date+ToString.swift in Sources */,
 				5297B248252756A800562477 /* ScannerCoordinator.swift in Sources */,
+				52210B5A25276A150082CF18 /* DrugBox.swift in Sources */,
 				52C4CB1F2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift in Sources */,
 				523906B72524946D00189D13 /* AppDelegate.swift in Sources */,
 				52ECAFED2524E07E00C1B123 /* SearchFieldComponent.swift in Sources */,

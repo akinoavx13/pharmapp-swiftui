@@ -31,6 +31,7 @@ struct PharmAppApp: App {
                     .tag(0)
 
                 ScanView()
+                    .environmentObject(drugStore)
                     .tabItem {
                         Image(systemName: "barcode.viewfinder")
                         Text("§Scanner")

@@ -7,13 +7,17 @@
 
 import Combine
 import Foundation
+import UIKit
 
-enum DrugStoreAction {}
+enum DrugStoreAction {
+    case findDrugAfterScan(code: String)
+}
 
 final class DrugStore: ObservableObject {
     // MARK: - Properties
 
     @Published var drugs: [Drug]
+    @Published var scannedDrug: Drug?
     @Published var searchedDrugs: [Drug]
     @Published var searchText: String = ""
 
@@ -48,7 +52,31 @@ final class DrugStore: ObservableObject {
 
     // MARK: - Methods
 
-    func dispatch(action _: DrugStoreAction) {}
+    func dispatch(action: DrugStoreAction) {
+        switch action {
+        case let .findDrugAfterScan(code):
+            extract(code: code)
+        }
+    }
+
+    private func extract(code: String) {
+        let startIndex = code.index(code.startIndex, offsetBy: 4)
+        let endIndex = code.index(code.startIndex, offsetBy: 17)
+        let cip13 = code[startIndex ..< endIndex]
+
+        let drugBox = ImportService
+            .shared
+            .drugBoxes
+            .first(where: { $0.cip13 == cip13 })
+        let drug = drugs
+            .first(where: { $0.cis == drugBox?.cis })
+
+        if let scannedDrug = drug {
+            UIImpactFeedbackGenerator(style: .heavy)
+                .impactOccurred()
+            self.scannedDrug = scannedDrug
+        }
+    }
 }
 
 #if DEBUG

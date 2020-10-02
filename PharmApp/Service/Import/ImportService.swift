@@ -18,6 +18,7 @@ final class ImportService: ImportServiceContract {
     static let shared: ImportServiceContract = ImportService()
 
     var drugs: [Drug] = []
+    var drugBoxes: [DrugBox] = []
 
     // MARK: - Lifecycle
 
@@ -27,6 +28,7 @@ final class ImportService: ImportServiceContract {
 
     func loadItems() {
         loadDrugs()
+        loadDrugBoxes()
     }
 
     private func loadDrugs() {
@@ -37,6 +39,17 @@ final class ImportService: ImportServiceContract {
         drugs = convert(fileContent: drugsContentFile)
             .compactMap {
                 Drug(row: $0)
+            }
+    }
+
+    private func loadDrugBoxes() {
+        guard
+            let drugBoxesContentFile = try? read(fileName: "CIS_CIP_bdpm")
+        else { return }
+
+        drugBoxes = convert(fileContent: drugBoxesContentFile)
+            .compactMap {
+                DrugBox(row: $0)
             }
     }
 

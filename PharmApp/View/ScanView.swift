@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ScanView: View {
+    // MARK: - Properties
+
+    @EnvironmentObject private var drugStore: DrugStore
+    @State private var isAlertPresented = false
+
     // MARK: - Body
 
     var body: some View {
@@ -32,12 +37,24 @@ struct ScanView: View {
                     .background(Color.white.opacity(0.9))
                     .cornerRadius(10)
                     .multilineTextAlignment(.center)
+                    .lineLimit(5)
+                    .minimumScaleFactor(0.5)
                     .padding(.horizontal, 24)
                     .padding(.bottom, 24)
             }
             .foregroundColor(.accent)
         }
         .edgesIgnoringSafeArea(.top)
+        .alert(isPresented: $isAlertPresented) {
+            Alert(title: Text("§Erreur"),
+                  message: Text("§Une erreur est survenue, veuillez réessayer."),
+                  dismissButton: .default(Text("§Compris !")))
+        }
+        .sheet(isPresented: .constant(drugStore.scannedDrug != nil)) {
+            drugStore.scannedDrug.map {
+                DrugDetailsView(drug: $0)
+            }
+        }
     }
 
     // MARK: - Methods
@@ -45,12 +62,9 @@ struct ScanView: View {
     private func handleScan(result: Result<String, ScannerError>) {
         switch result {
         case let .success(code):
-            UIImpactFeedbackGenerator(style: .heavy)
-                .impactOccurred()
-
-            print("QR code is: \(code)")
-        case let .failure(error):
-            print("Error: \(error)")
+            drugStore.dispatch(action: .findDrugAfterScan(code: code))
+        case .failure:
+            isAlertPresented = true
         }
     }
 }
@@ -58,7 +72,16 @@ struct ScanView: View {
 #if DEBUG
     struct ScanView_Previews: PreviewProvider {
         static var previews: some View {
-            ScanView()
+            Group {
+                ScanView()
+                    .preferredColorScheme(.light)
+
+                ScanView()
+                    .environment(\.sizeCategory,
+                                 .accessibilityExtraExtraExtraLarge)
+                    .preferredColorScheme(.dark)
+            }
+            .environmentObject(DrugStore.previewStore)
         }
     }
 #endif
