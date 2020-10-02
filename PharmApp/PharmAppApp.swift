@@ -13,14 +13,30 @@ struct PharmAppApp: App {
 
     // swiftlint:disable:next weak_delegate
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @State var selectedView = 0
+
     @StateObject private var drugStore = DrugStore()
 
     // MARK: - Body
 
     var body: some Scene {
         WindowGroup {
-            SearchView()
-                .environmentObject(drugStore)
+            TabView {
+                SearchView()
+                    .environmentObject(drugStore)
+                    .tabItem {
+                        Image(systemName: "magnifyingglass")
+                        Text("§Rechercher")
+                    }
+                    .tag(0)
+
+                ScanView()
+                    .tabItem {
+                        Image(systemName: "barcode.viewfinder")
+                        Text("§Scanner")
+                    }
+                    .tag(1)
+            }
         }
     }
 }

@@ -16,6 +16,12 @@
 		5255802125250F8300CBC4F8 /* DrugRowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255802025250F8300CBC4F8 /* DrugRowComponent.swift */; };
 		525580252525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525580242525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift */; };
 		525580292525135100CBC4F8 /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525580282525135100CBC4F8 /* UIApplication+EndEditing.swift */; };
+		5297B2382527541700562477 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5297B2372527541700562477 /* ScanView.swift */; };
+		5297B23E2527557A00562477 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5297B2402527557A00562477 /* InfoPlist.strings */; };
+		5297B243252755D100562477 /* ScannerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5297B242252755D100562477 /* ScannerComponent.swift */; };
+		5297B248252756A800562477 /* ScannerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5297B247252756A800562477 /* ScannerCoordinator.swift */; };
+		5297B24B2527581E00562477 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5297B24A2527581E00562477 /* ScannerViewController.swift */; };
+		5297B24E2527591300562477 /* ScannerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5297B24D2527591300562477 /* ScannerError.swift */; };
 		529C2DB22525FB9300D826CF /* DrugDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529C2DB12525FB9300D826CF /* DrugDetailsView.swift */; };
 		52BB91012524786500266244 /* PharmAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB91002524786500266244 /* PharmAppApp.swift */; };
 		52BB91032524786500266244 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BB91022524786500266244 /* SearchView.swift */; };
@@ -39,6 +45,12 @@
 		5255802025250F8300CBC4F8 /* DrugRowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugRowComponent.swift; sourceTree = "<group>"; };
 		525580242525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboardOnSwipe.swift; sourceTree = "<group>"; };
 		525580282525135100CBC4F8 /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
+		5297B2372527541700562477 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		5297B23F2527557A00562477 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5297B242252755D100562477 /* ScannerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerComponent.swift; sourceTree = "<group>"; };
+		5297B247252756A800562477 /* ScannerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerCoordinator.swift; sourceTree = "<group>"; };
+		5297B24A2527581E00562477 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		5297B24D2527591300562477 /* ScannerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerError.swift; sourceTree = "<group>"; };
 		529C2DB12525FB9300D826CF /* DrugDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugDetailsView.swift; sourceTree = "<group>"; };
 		52BB90FD2524786500266244 /* PharmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PharmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52BB91002524786500266244 /* PharmAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmAppApp.swift; sourceTree = "<group>"; };
@@ -102,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				52BB91022524786500266244 /* SearchView.swift */,
+				5297B2372527541700562477 /* ScanView.swift */,
 				529C2DB12525FB9300D826CF /* DrugDetailsView.swift */,
 			);
 			path = View;
@@ -113,6 +126,17 @@
 				525580242525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		5297B2462527569300562477 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				5297B242252755D100562477 /* ScannerComponent.swift */,
+				5297B247252756A800562477 /* ScannerCoordinator.swift */,
+				5297B24A2527581E00562477 /* ScannerViewController.swift */,
+				5297B24D2527591300562477 /* ScannerError.swift */,
+			);
+			path = Scanner;
 			sourceTree = "<group>";
 		};
 		52BB90F42524786500266244 = {
@@ -139,10 +163,10 @@
 				523906E625249C4500189D13 /* Entity */,
 				525580232525123200CBC4F8 /* Util */,
 				52ECAFE62524DD5400C1B123 /* Extension */,
+				523906AB2524911000189D13 /* Service */,
 				52D3BA302524A9D1004C3CE3 /* Store */,
 				52ECAFEB2524E06D00C1B123 /* Component */,
 				523906E725249C4E00189D13 /* View */,
-				523906AB2524911000189D13 /* Service */,
 				52BB91102524792600266244 /* Resource */,
 			);
 			path = PharmApp;
@@ -162,6 +186,7 @@
 				523906962524908900189D13 /* Database */,
 				52BB91042524786700266244 /* Assets.xcassets */,
 				52BB91092524786700266244 /* Info.plist */,
+				5297B2402527557A00562477 /* InfoPlist.strings */,
 				52BB91062524786700266244 /* Preview Content */,
 			);
 			path = Resource;
@@ -191,6 +216,7 @@
 		52ECAFEB2524E06D00C1B123 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				5297B2462527569300562477 /* Scanner */,
 				52ECAFEC2524E07E00C1B123 /* SearchFieldComponent.swift */,
 				5255802025250F8300CBC4F8 /* DrugRowComponent.swift */,
 			);
@@ -207,8 +233,8 @@
 				52BB90F92524786500266244 /* Sources */,
 				52BB90FA2524786500266244 /* Frameworks */,
 				52BB90FB2524786500266244 /* Resources */,
-				523906B42524916500189D13 /* SwiftLint */,
 				529843892526581000DFC146 /* SwiftFormat */,
+				523906B42524916500189D13 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -256,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				523906DB25249B5100189D13 /* CIS_bdpm.txt in Resources */,
+				5297B23E2527557A00562477 /* InfoPlist.strings in Resources */,
 				52BB91082524786700266244 /* Preview Assets.xcassets in Resources */,
 				52BB91052524786700266244 /* Assets.xcassets in Resources */,
 			);
@@ -308,16 +335,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				523906AE2524912D00189D13 /* ImportServiceContract.swift in Sources */,
+				5297B24E2527591300562477 /* ScannerError.swift in Sources */,
+				5297B243252755D100562477 /* ScannerComponent.swift in Sources */,
 				52BC50A6252649C1002EF986 /* String+ToDate.swift in Sources */,
 				525580292525135100CBC4F8 /* UIApplication+EndEditing.swift in Sources */,
 				52BB91032524786500266244 /* SearchView.swift in Sources */,
 				525580252525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift in Sources */,
+				5297B2382527541700562477 /* ScanView.swift in Sources */,
+				5297B24B2527581E00562477 /* ScannerViewController.swift in Sources */,
 				5255802125250F8300CBC4F8 /* DrugRowComponent.swift in Sources */,
 				52ECAFE82524DD6200C1B123 /* Color+Custom.swift in Sources */,
 				5204925C2525CC7500233614 /* View+IsHidden.swift in Sources */,
 				523906B22524913E00189D13 /* ImportService.swift in Sources */,
 				529C2DB22525FB9300D826CF /* DrugDetailsView.swift in Sources */,
 				52BC50A9252649ED002EF986 /* Date+ToString.swift in Sources */,
+				5297B248252756A800562477 /* ScannerCoordinator.swift in Sources */,
 				52C4CB1F2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift in Sources */,
 				523906B72524946D00189D13 /* AppDelegate.swift in Sources */,
 				52ECAFED2524E07E00C1B123 /* SearchFieldComponent.swift in Sources */,
@@ -328,6 +360,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5297B2402527557A00562477 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5297B23F2527557A00562477 /* fr */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		52BB910A2524786700266244 /* Debug */ = {

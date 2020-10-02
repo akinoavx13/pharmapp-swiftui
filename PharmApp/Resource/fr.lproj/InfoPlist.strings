@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  PharmApp
+
+  Created by Maxime Maheo on 02/10/2020.
+  
+*/
+NSCameraUsageDescription = "§Utilisation de l'appareil photo pour scanner les médicaments.";
