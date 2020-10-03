@@ -37,7 +37,7 @@ import UIKit
             NSLayoutConstraint.activate([
                 stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
                 stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-                stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
             ])
         }
 

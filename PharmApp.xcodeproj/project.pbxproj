@@ -15,9 +15,13 @@
 		523906B72524946D00189D13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523906B62524946D00189D13 /* AppDelegate.swift */; };
 		523906DB25249B5100189D13 /* CIS_bdpm.txt in Resources */ = {isa = PBXBuildFile; fileRef = 523906D225249B5100189D13 /* CIS_bdpm.txt */; };
 		523906E425249C4300189D13 /* Drug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523906E325249C4300189D13 /* Drug.swift */; };
+		524F8AA12528CD500016C056 /* DrugDetailsHeaderRowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F8AA02528CD500016C056 /* DrugDetailsHeaderRowComponent.swift */; };
+		524F8AA42528CE200016C056 /* DrugDetailsReferenceRowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F8AA32528CE200016C056 /* DrugDetailsReferenceRowComponent.swift */; };
+		524F8AA82528CE8D0016C056 /* DrugDetailsStatusRowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F8AA72528CE8D0016C056 /* DrugDetailsStatusRowComponent.swift */; };
 		5255802125250F8300CBC4F8 /* DrugRowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255802025250F8300CBC4F8 /* DrugRowComponent.swift */; };
 		525580252525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525580242525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift */; };
 		525580292525135100CBC4F8 /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525580282525135100CBC4F8 /* UIApplication+EndEditing.swift */; };
+		527A61062528C8AF00C2FCA6 /* DrugBoxPresentationRowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527A61052528C8AF00C2FCA6 /* DrugBoxPresentationRowComponent.swift */; };
 		5297B2382527541700562477 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5297B2372527541700562477 /* ScanView.swift */; };
 		5297B23E2527557A00562477 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5297B2402527557A00562477 /* InfoPlist.strings */; };
 		5297B243252755D100562477 /* ScannerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5297B242252755D100562477 /* ScannerComponent.swift */; };
@@ -46,9 +50,13 @@
 		523906B62524946D00189D13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		523906D225249B5100189D13 /* CIS_bdpm.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CIS_bdpm.txt; sourceTree = "<group>"; };
 		523906E325249C4300189D13 /* Drug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drug.swift; sourceTree = "<group>"; };
+		524F8AA02528CD500016C056 /* DrugDetailsHeaderRowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugDetailsHeaderRowComponent.swift; sourceTree = "<group>"; };
+		524F8AA32528CE200016C056 /* DrugDetailsReferenceRowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugDetailsReferenceRowComponent.swift; sourceTree = "<group>"; };
+		524F8AA72528CE8D0016C056 /* DrugDetailsStatusRowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugDetailsStatusRowComponent.swift; sourceTree = "<group>"; };
 		5255802025250F8300CBC4F8 /* DrugRowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugRowComponent.swift; sourceTree = "<group>"; };
 		525580242525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboardOnSwipe.swift; sourceTree = "<group>"; };
 		525580282525135100CBC4F8 /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
+		527A61052528C8AF00C2FCA6 /* DrugBoxPresentationRowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugBoxPresentationRowComponent.swift; sourceTree = "<group>"; };
 		5297B2372527541700562477 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		5297B23F2527557A00562477 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5297B242252755D100562477 /* ScannerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerComponent.swift; sourceTree = "<group>"; };
@@ -222,9 +230,13 @@
 		52ECAFEB2524E06D00C1B123 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				5297B2462527569300562477 /* Scanner */,
 				52ECAFEC2524E07E00C1B123 /* SearchFieldComponent.swift */,
 				5255802025250F8300CBC4F8 /* DrugRowComponent.swift */,
+				527A61052528C8AF00C2FCA6 /* DrugBoxPresentationRowComponent.swift */,
+				524F8AA02528CD500016C056 /* DrugDetailsHeaderRowComponent.swift */,
+				5297B2462527569300562477 /* Scanner */,
+				524F8AA32528CE200016C056 /* DrugDetailsReferenceRowComponent.swift */,
+				524F8AA72528CE8D0016C056 /* DrugDetailsStatusRowComponent.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -239,7 +251,6 @@
 				52BB90F92524786500266244 /* Sources */,
 				52BB90FA2524786500266244 /* Frameworks */,
 				52BB90FB2524786500266244 /* Resources */,
-				529843892526581000DFC146 /* SwiftFormat */,
 				523906B42524916500189D13 /* SwiftLint */,
 			);
 			buildRules = (
@@ -316,24 +327,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		529843892526581000DFC146 /* SwiftFormat */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftFormat;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -347,6 +340,7 @@
 				52BC50A6252649C1002EF986 /* String+ToDate.swift in Sources */,
 				525580292525135100CBC4F8 /* UIApplication+EndEditing.swift in Sources */,
 				52BB91032524786500266244 /* SearchView.swift in Sources */,
+				524F8AA82528CE8D0016C056 /* DrugDetailsStatusRowComponent.swift in Sources */,
 				525580252525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift in Sources */,
 				5297B2382527541700562477 /* ScanView.swift in Sources */,
 				5297B24B2527581E00562477 /* ScannerViewController.swift in Sources */,
@@ -359,11 +353,14 @@
 				5297B248252756A800562477 /* ScannerCoordinator.swift in Sources */,
 				52210B5A25276A150082CF18 /* DrugBox.swift in Sources */,
 				52C4CB1F2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift in Sources */,
+				527A61062528C8AF00C2FCA6 /* DrugBoxPresentationRowComponent.swift in Sources */,
 				523906B72524946D00189D13 /* AppDelegate.swift in Sources */,
 				52ECAFED2524E07E00C1B123 /* SearchFieldComponent.swift in Sources */,
+				524F8AA12528CD500016C056 /* DrugDetailsHeaderRowComponent.swift in Sources */,
 				52BB91012524786500266244 /* PharmAppApp.swift in Sources */,
 				52E953FA2524ABB600033E2E /* DrugStore.swift in Sources */,
 				523906E425249C4300189D13 /* Drug.swift in Sources */,
+				524F8AA42528CE200016C056 /* DrugDetailsReferenceRowComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

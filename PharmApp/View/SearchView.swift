@@ -39,8 +39,8 @@ struct SearchView: View {
                     }
                 }
             }
-            .modifier(DismissingKeyboardOnSwipe())
             .navigationBarTitle(Text("§Médicaments"))
+            .modifier(DismissingKeyboardOnSwipe())
         }
     }
 }

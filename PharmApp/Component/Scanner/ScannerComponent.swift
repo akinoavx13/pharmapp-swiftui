@@ -22,8 +22,7 @@ struct ScannerComponent: UIViewControllerRepresentable {
     init(codeTypes: [AVMetadataObject.ObjectType],
          shouldRestartScanProcess: Bool,
          simulatedData: String = "",
-         completion: @escaping (Result<String, ScannerError>) -> Void)
-    {
+         completion: @escaping (Result<String, ScannerError>) -> Void) {
         self.codeTypes = codeTypes
         self.simulatedData = simulatedData
         self.completion = completion
@@ -44,8 +43,7 @@ struct ScannerComponent: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_: ScannerViewController,
-                                context: Context)
-    {
+                                context: Context) {
         if shouldRestartScanProcess {
             context.coordinator.restartScanProcess()
         }

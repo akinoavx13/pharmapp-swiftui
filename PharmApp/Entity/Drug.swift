@@ -89,15 +89,15 @@ struct Drug: Identifiable {
 
 #if DEBUG
     extension Drug {
-        static let one = Drug(row: ["61266250",
-                                    "A 313 200 000 UI POUR CENT, pommade",
-                                    "pommade",
-                                    "cutanée",
+        static let one = Drug(row: ["60234100",
+                                    "DOLIPRANE 1000 mg, comprimÈ",
+                                    "comprimé",
+                                    "orale",
                                     "Autorisation active",
                                     "Procédure nationale",
                                     "Commercialisée",
-                                    "12/03/1998",
-                                    "PHARMA DEVELOPPEMENT",
+                                    "09/07/2002",
+                                    "SANOFI AVENTIS FRANCE",
                                     "Non",
                                     "SANOFI AVENTIS FRANCE;EG LABO - LABORATOIRES EUROGENERICS"])!
 
@@ -134,7 +134,7 @@ struct Drug: Identifiable {
                        "21/02/2018",
                        "MYLAN SAS",
                        "Non",
-                       "SANOFI AVENTIS FRANCE"])!,
+                       "SANOFI AVENTIS FRANCE"])!
         ]
     }
 #endif

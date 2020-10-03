@@ -24,8 +24,7 @@ class ScannerCoordinator: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 
     func metadataOutput(_: AVCaptureMetadataOutput,
                         didOutput metadataObjects: [AVMetadataObject],
-                        from _: AVCaptureConnection)
-    {
+                        from _: AVCaptureConnection) {
         guard
             let metadataObject = metadataObjects.first,
             let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject,

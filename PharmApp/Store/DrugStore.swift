@@ -20,7 +20,7 @@ final class DrugStore: ObservableObject {
 
     @Published var drugs: [Drug]
     @Published var scannedDrug: Drug?
-    @Published var currentDrugBox: DrugBox?
+    @Published var currentDrugBoxes: [DrugBox] = []
     @Published var shouldRestartScanProcess: Bool = false
     @Published var searchedDrugs: [Drug]
     @Published var searchText: String = ""
@@ -61,13 +61,10 @@ final class DrugStore: ObservableObject {
         case let .scannerDidFound(code):
             findDrug(with: code)
         case let .drugDetailsDidOpen(drug):
-            currentDrugBox = ImportService
-                .shared
-                .drugBoxes
-                .first(where: { $0.cis == drug.cis })
+            currentDrugBoxes = findDrugBoxes(cis: drug.cis)
         case .drugDetailsDidClose:
             scannedDrug = nil
-            currentDrugBox = nil
+            currentDrugBoxes.removeAll()
             shouldRestartScanProcess = true
         }
     }
@@ -95,6 +92,13 @@ final class DrugStore: ObservableObject {
             .first(where: { $0.cis == drugBox?.cis })
 
         return drug
+    }
+
+    private func findDrugBoxes(cis: String) -> [DrugBox] {
+        ImportService
+            .shared
+            .drugBoxes
+            .filter { $0.cis == cis }
     }
 
     private func extractCIP13(from code: String) -> String {
