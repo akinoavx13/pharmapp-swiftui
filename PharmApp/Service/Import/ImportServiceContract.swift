@@ -10,6 +10,7 @@ protocol ImportServiceContract {
 
     var drugs: [Drug] { get }
     var drugBoxes: [DrugBox] { get }
+    var drugCompositions: [DrugComposition] { get }
 
     // MARK: - Methods
 

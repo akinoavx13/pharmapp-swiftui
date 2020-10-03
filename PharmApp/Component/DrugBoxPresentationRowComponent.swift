@@ -20,7 +20,7 @@ struct DrugBoxPresentationRowComponent: View {
             Text(drugBox.presentationName)
 
             Text(drugBox.presentationAdministrationStatus)
-                .font(.callout)
+                .font(.caption)
                 .foregroundColor(.gray)
 
             VStack(spacing: 4) {
@@ -43,6 +43,7 @@ struct DrugBoxPresentationRowComponent: View {
         if !cip.isEmpty {
             HStack {
                 Text(title)
+                    .font(.subheadline)
                 
                 Spacer()
                 

@@ -21,6 +21,7 @@ final class DrugStore: ObservableObject {
     @Published var drugs: [Drug]
     @Published var scannedDrug: Drug?
     @Published var currentDrugBoxes: [DrugBox] = []
+    @Published var currentDrugCompositions: [DrugComposition] = []
     @Published var shouldRestartScanProcess: Bool = false
     @Published var searchedDrugs: [Drug]
     @Published var searchText: String = ""
@@ -62,9 +63,11 @@ final class DrugStore: ObservableObject {
             findDrug(with: code)
         case let .drugDetailsDidOpen(drug):
             currentDrugBoxes = findDrugBoxes(cis: drug.cis)
+            currentDrugCompositions = findDrugCompositions(cis: drug.cis)
         case .drugDetailsDidClose:
             scannedDrug = nil
             currentDrugBoxes.removeAll()
+            currentDrugCompositions.removeAll()
             shouldRestartScanProcess = true
         }
     }
@@ -98,6 +101,13 @@ final class DrugStore: ObservableObject {
         ImportService
             .shared
             .drugBoxes
+            .filter { $0.cis == cis }
+    }
+    
+    private func findDrugCompositions(cis: String) -> [DrugComposition] {
+        ImportService
+            .shared
+            .drugCompositions
             .filter { $0.cis == cis }
     }
 

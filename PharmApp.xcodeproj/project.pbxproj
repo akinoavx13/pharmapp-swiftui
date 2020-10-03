@@ -18,6 +18,9 @@
 		524F8AA12528CD500016C056 /* DrugDetailsHeaderRowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F8AA02528CD500016C056 /* DrugDetailsHeaderRowComponent.swift */; };
 		524F8AA42528CE200016C056 /* DrugDetailsReferenceRowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F8AA32528CE200016C056 /* DrugDetailsReferenceRowComponent.swift */; };
 		524F8AA82528CE8D0016C056 /* DrugDetailsStatusRowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F8AA72528CE8D0016C056 /* DrugDetailsStatusRowComponent.swift */; };
+		524F8AAC2528D3050016C056 /* CIS_COMPO_bdpm.txt in Resources */ = {isa = PBXBuildFile; fileRef = 524F8AAB2528D3050016C056 /* CIS_COMPO_bdpm.txt */; };
+		524F8AAF2528D33A0016C056 /* DrugComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F8AAE2528D33A0016C056 /* DrugComposition.swift */; };
+		524F8AB22528D5830016C056 /* DrugCompositionRowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524F8AB12528D5830016C056 /* DrugCompositionRowComponent.swift */; };
 		5255802125250F8300CBC4F8 /* DrugRowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5255802025250F8300CBC4F8 /* DrugRowComponent.swift */; };
 		525580252525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525580242525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift */; };
 		525580292525135100CBC4F8 /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525580282525135100CBC4F8 /* UIApplication+EndEditing.swift */; };
@@ -53,6 +56,9 @@
 		524F8AA02528CD500016C056 /* DrugDetailsHeaderRowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugDetailsHeaderRowComponent.swift; sourceTree = "<group>"; };
 		524F8AA32528CE200016C056 /* DrugDetailsReferenceRowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugDetailsReferenceRowComponent.swift; sourceTree = "<group>"; };
 		524F8AA72528CE8D0016C056 /* DrugDetailsStatusRowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugDetailsStatusRowComponent.swift; sourceTree = "<group>"; };
+		524F8AAB2528D3050016C056 /* CIS_COMPO_bdpm.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CIS_COMPO_bdpm.txt; sourceTree = "<group>"; };
+		524F8AAE2528D33A0016C056 /* DrugComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugComposition.swift; sourceTree = "<group>"; };
+		524F8AB12528D5830016C056 /* DrugCompositionRowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugCompositionRowComponent.swift; sourceTree = "<group>"; };
 		5255802025250F8300CBC4F8 /* DrugRowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugRowComponent.swift; sourceTree = "<group>"; };
 		525580242525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboardOnSwipe.swift; sourceTree = "<group>"; };
 		525580282525135100CBC4F8 /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
@@ -92,6 +98,7 @@
 		523906962524908900189D13 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				524F8AAB2528D3050016C056 /* CIS_COMPO_bdpm.txt */,
 				52210B5C25276C5B0082CF18 /* CIS_CIP_bdpm.txt */,
 				523906D225249B5100189D13 /* CIS_bdpm.txt */,
 			);
@@ -120,6 +127,7 @@
 			children = (
 				523906E325249C4300189D13 /* Drug.swift */,
 				52210B5925276A150082CF18 /* DrugBox.swift */,
+				524F8AAE2528D33A0016C056 /* DrugComposition.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -236,6 +244,7 @@
 				524F8AA02528CD500016C056 /* DrugDetailsHeaderRowComponent.swift */,
 				524F8AA32528CE200016C056 /* DrugDetailsReferenceRowComponent.swift */,
 				524F8AA72528CE8D0016C056 /* DrugDetailsStatusRowComponent.swift */,
+				524F8AB12528D5830016C056 /* DrugCompositionRowComponent.swift */,
 				5297B2462527569300562477 /* Scanner */,
 			);
 			path = Component;
@@ -302,6 +311,7 @@
 				523906DB25249B5100189D13 /* CIS_bdpm.txt in Resources */,
 				5297B23E2527557A00562477 /* InfoPlist.strings in Resources */,
 				52BB91082524786700266244 /* Preview Assets.xcassets in Resources */,
+				524F8AAC2528D3050016C056 /* CIS_COMPO_bdpm.txt in Resources */,
 				52BB91052524786700266244 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +354,7 @@
 				525580252525123C00CBC4F8 /* DismissingKeyboardOnSwipe.swift in Sources */,
 				5297B2382527541700562477 /* ScanView.swift in Sources */,
 				5297B24B2527581E00562477 /* ScannerViewController.swift in Sources */,
+				524F8AB22528D5830016C056 /* DrugCompositionRowComponent.swift in Sources */,
 				5255802125250F8300CBC4F8 /* DrugRowComponent.swift in Sources */,
 				52ECAFE82524DD6200C1B123 /* Color+Custom.swift in Sources */,
 				5204925C2525CC7500233614 /* View+IsHidden.swift in Sources */,
@@ -352,6 +363,7 @@
 				52BC50A9252649ED002EF986 /* Date+ToString.swift in Sources */,
 				5297B248252756A800562477 /* ScannerCoordinator.swift in Sources */,
 				52210B5A25276A150082CF18 /* DrugBox.swift in Sources */,
+				524F8AAF2528D33A0016C056 /* DrugComposition.swift in Sources */,
 				52C4CB1F2524E7D30043CF82 /* String+CapitalizingFirstLetter.swift in Sources */,
 				527A61062528C8AF00C2FCA6 /* DrugBoxPresentationRowComponent.swift in Sources */,
 				523906B72524946D00189D13 /* AppDelegate.swift in Sources */,

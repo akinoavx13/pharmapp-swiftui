@@ -26,9 +26,11 @@ struct DrugDetailsView: View {
             
             makeStatusSectionView()
             
-            makeReferenceSectionView()
-            
             makeDrugBoxesPresentationSectionView()
+            
+            makeDrugCompositionsSectionView()
+            
+            makeReferenceSectionView()
         }
         .navigationBarTitle(drug.prettyName)
         .onAppear { drugStore.dispatch(action: .drugDetailsDidOpen(drug: drug)) }
@@ -107,13 +109,6 @@ struct DrugDetailsView: View {
         }
     }
     
-    private func makeReferenceSectionView() -> some View {
-        Section(header: Text("§Référence")) {
-            DrugDetailsReferenceRowComponent(title: "CIS",
-                                             value: drug.cis)
-        }
-    }
-    
     @ViewBuilder
     private func makeDrugBoxesPresentationSectionView() -> some View {
         if !drugStore.currentDrugBoxes.isEmpty {
@@ -124,6 +119,26 @@ struct DrugDetailsView: View {
                     DrugBoxPresentationRowComponent(drugBox: drugBox)
                 }
             }
+        }
+    }
+    
+    @ViewBuilder
+    private func makeDrugCompositionsSectionView() -> some View {
+        if !drugStore.currentDrugBoxes.isEmpty {
+            Section(header: Text(drugStore.currentDrugCompositions.count > 1 ?
+                                    "§Compositions" :
+                                    "§Composition")) {
+                ForEach(drugStore.currentDrugCompositions) { drugComposition in
+                    DrugCompositionRowComponent(drugComposition: drugComposition)
+                }
+            }
+        }
+    }
+    
+    private func makeReferenceSectionView() -> some View {
+        Section(header: Text("§Référence")) {
+            DrugDetailsReferenceRowComponent(title: "CIS",
+                                             value: drug.cis)
         }
     }
 }

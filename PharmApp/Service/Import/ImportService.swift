@@ -19,6 +19,7 @@ final class ImportService: ImportServiceContract {
 
     var drugs: [Drug] = []
     var drugBoxes: [DrugBox] = []
+    var drugCompositions: [DrugComposition] = []
 
     // MARK: - Lifecycle
 
@@ -29,6 +30,7 @@ final class ImportService: ImportServiceContract {
     func loadItems() {
         loadDrugs()
         loadDrugBoxes()
+        loadDrugCompositions()
     }
 
     private func loadDrugs() {
@@ -50,6 +52,17 @@ final class ImportService: ImportServiceContract {
         drugBoxes = convert(fileContent: drugBoxesContentFile)
             .compactMap {
                 DrugBox(row: $0)
+            }
+    }
+    
+    private func loadDrugCompositions() {
+        guard
+            let drugCompositionsContentFile = try? read(fileName: "CIS_COMPO_bdpm")
+        else { return }
+
+        drugCompositions = convert(fileContent: drugCompositionsContentFile)
+            .compactMap {
+                DrugComposition(row: $0)
             }
     }
 
