@@ -23,12 +23,15 @@ struct DrugBoxPresentationRowComponent: View {
                 .font(.callout)
                 .foregroundColor(.gray)
 
-            makeCIPView(title: "CIP13 -",
-                        cip: drugBox.cip13)
+            VStack(spacing: 4) {
+                makeCIPView(title: "CIP7",
+                            cip: drugBox.cip7)
+                
+                makeCIPView(title: "CIP13",
+                            cip: drugBox.cip13)
+            }
+            .padding(.vertical, 8)
             
-            makeCIPView(title: "CIP7 -",
-                        cip: drugBox.cip7)
-
             makePriceView()
         }
     }
@@ -40,11 +43,12 @@ struct DrugBoxPresentationRowComponent: View {
         if !cip.isEmpty {
             HStack {
                 Text(title)
-                    .bold()
+                
+                Spacer()
                 
                 Text(cip)
-                    .font(.callout)
-                    .italic()
+                    .font(.caption)
+                    .foregroundColor(.gray)
             }
         }
     }
@@ -68,7 +72,6 @@ struct DrugBoxPresentationRowComponent: View {
                     .bold()
             }
             .foregroundColor(.accent)
-            .padding(.top, 8)
         }
     }
 }

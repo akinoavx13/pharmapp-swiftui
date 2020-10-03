@@ -109,7 +109,7 @@ struct DrugDetailsView: View {
     
     private func makeReferenceSectionView() -> some View {
         Section(header: Text("§Référence")) {
-            DrugDetailsReferenceRowComponent(title: "§Code CIS",
+            DrugDetailsReferenceRowComponent(title: "CIS",
                                              value: drug.cis)
         }
     }

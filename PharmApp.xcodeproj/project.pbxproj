@@ -234,9 +234,9 @@
 				5255802025250F8300CBC4F8 /* DrugRowComponent.swift */,
 				527A61052528C8AF00C2FCA6 /* DrugBoxPresentationRowComponent.swift */,
 				524F8AA02528CD500016C056 /* DrugDetailsHeaderRowComponent.swift */,
-				5297B2462527569300562477 /* Scanner */,
 				524F8AA32528CE200016C056 /* DrugDetailsReferenceRowComponent.swift */,
 				524F8AA72528CE8D0016C056 /* DrugDetailsStatusRowComponent.swift */,
+				5297B2462527569300562477 /* Scanner */,
 			);
 			path = Component;
 			sourceTree = "<group>";
