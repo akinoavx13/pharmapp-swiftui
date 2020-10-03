@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 
 enum DrugStoreAction {
-    case findDrugAfterScan(code: String)
-    case closeDrugDetailsAfterScan
+    case scannerDidFound(code: String)
+    case drugDetailsDidOpen(drug: Drug)
+    case drugDetailsDidClose
 }
 
 final class DrugStore: ObservableObject {
@@ -19,6 +20,7 @@ final class DrugStore: ObservableObject {
 
     @Published var drugs: [Drug]
     @Published var scannedDrug: Drug?
+    @Published var currentDrugBox: DrugBox?
     @Published var shouldRestartScanProcess: Bool = false
     @Published var searchedDrugs: [Drug]
     @Published var searchText: String = ""
@@ -56,17 +58,23 @@ final class DrugStore: ObservableObject {
 
     func dispatch(action: DrugStoreAction) {
         switch action {
-        case let .findDrugAfterScan(code):
-            foundDrug(fromScanCode: code)
-        case .closeDrugDetailsAfterScan:
+        case let .scannerDidFound(code):
+            findDrug(with: code)
+        case let .drugDetailsDidOpen(drug):
+            currentDrugBox = ImportService
+                .shared
+                .drugBoxes
+                .first(where: { $0.cis == drug.cis })
+        case .drugDetailsDidClose:
             scannedDrug = nil
+            currentDrugBox = nil
             shouldRestartScanProcess = true
         }
     }
 
-    private func foundDrug(fromScanCode code: String) {
+    private func findDrug(with code: String) {
         let cip13 = extractCIP13(from: code)
-        let drug = foundDrug(cip13: cip13)
+        let drug = findDrug(cip13: cip13)
 
         if let drug = drug {
             shouldRestartScanProcess = false
@@ -77,7 +85,7 @@ final class DrugStore: ObservableObject {
         }
     }
 
-    private func foundDrug(cip13: String) -> Drug? {
+    private func findDrug(cip13: String) -> Drug? {
         let drugBox = ImportService
             .shared
             .drugBoxes

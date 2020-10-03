@@ -62,7 +62,6 @@ struct ScanView: View {
                   dismissButton: .default(Text("§Compris !")))
         }
         .sheet(isPresented: .constant(drugStore.scannedDrug != nil),
-               onDismiss: { drugStore.dispatch(action: .closeDrugDetailsAfterScan) },
                content: {
                    drugStore.scannedDrug.map {
                        DrugDetailsView(drug: $0)
@@ -75,7 +74,7 @@ struct ScanView: View {
     private func handleScan(result: Result<String, ScannerError>) {
         switch result {
         case let .success(code):
-            drugStore.dispatch(action: .findDrugAfterScan(code: code))
+            drugStore.dispatch(action: .scannerDidFound(code: code))
         case .failure:
             isAlertPresented = true
         }

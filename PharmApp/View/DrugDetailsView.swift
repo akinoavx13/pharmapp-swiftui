@@ -12,6 +12,8 @@ struct DrugDetailsView: View {
 
     var drug: Drug
 
+    @EnvironmentObject private var drugStore: DrugStore
+
     // MARK: - Body
 
     var body: some View {
@@ -80,9 +82,16 @@ struct DrugDetailsView: View {
             Section(header: Text("§Référence")) {
                 makeReferenceRowView(title: "§Code CIS",
                                      value: drug.cis)
+
+                drugStore.currentDrugBox.map {
+                    makeReferenceRowView(title: "§Code CIP13",
+                                         value: $0.cip13)
+                }
             }
         }
         .navigationBarTitle(drug.prettyName)
+        .onAppear { drugStore.dispatch(action: .drugDetailsDidOpen(drug: drug)) }
+        .onDisappear { drugStore.dispatch(action: .drugDetailsDidClose) }
     }
 
     // MARK: - Methods
@@ -163,6 +172,7 @@ struct DrugDetailsView: View {
                     .environment(\.sizeCategory,
                                  .accessibilityExtraExtraExtraLarge)
             }
+            .environmentObject(DrugStore.previewStore)
         }
     }
 #endif

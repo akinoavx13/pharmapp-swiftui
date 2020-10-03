@@ -23,7 +23,6 @@ struct PharmAppApp: App {
         WindowGroup {
             TabView {
                 SearchView()
-                    .environmentObject(drugStore)
                     .tabItem {
                         Image(systemName: "magnifyingglass")
                         Text("§Rechercher")
@@ -31,13 +30,13 @@ struct PharmAppApp: App {
                     .tag(0)
 
                 ScanView()
-                    .environmentObject(drugStore)
                     .tabItem {
                         Image(systemName: "barcode.viewfinder")
                         Text("§Scanner")
                     }
                     .tag(1)
             }
+            .environmentObject(drugStore)
         }
     }
 }
