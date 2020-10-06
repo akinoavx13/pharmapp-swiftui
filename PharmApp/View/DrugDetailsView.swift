@@ -22,6 +22,8 @@ struct DrugDetailsView: View {
             
             makeNameSectionView()
             
+            makeButtonSectionView()
+            
             makeHeaderSectionView()
             
             makeStatusSectionView()
@@ -60,26 +62,50 @@ struct DrugDetailsView: View {
     
     private func makeNameSectionView() -> some View {
         Section {
-            DrugDetailsHeaderRowComponent(iconSystemName: "pencil.circle.fill",
+            DrugDetailsHeaderRowComponent(iconSystemName: "pencil.circle",
                                           accentColor: .accent,
                                           title: "§Dénomination du médicament",
                                           value: drug.prettyName)
         }
     }
     
+    private func makeButtonSectionView() -> some View {
+        Section {
+            NavigationLink(
+                destination: Text("ok"),
+                label: {
+                    HStack {
+                        Image(systemName: "cross.case")
+                        Text("§Ajouter au stock")
+                    }
+                    .foregroundColor(.blue)
+                })
+            
+            NavigationLink(
+                destination: Text("ok"),
+                label: {
+                    HStack {
+                        Image(systemName: "calendar.badge.clock")
+                        Text("§Ajouter un rappel")
+                    }
+                    .foregroundColor(.accent)
+                })
+        }
+    }
+    
     private func makeHeaderSectionView() -> some View {
         Section {
-            DrugDetailsHeaderRowComponent(iconSystemName: "info.circle.fill",
+            DrugDetailsHeaderRowComponent(iconSystemName: "info.circle",
                                           accentColor: .blue,
                                           title: "§Titulaire",
                                           value: drug.holders.joined(separator: "\n"))
             
-            DrugDetailsHeaderRowComponent(iconSystemName: "pills.fill",
+            DrugDetailsHeaderRowComponent(iconSystemName: "pills",
                                           accentColor: .accent,
                                           title: "§Voie d'administration",
                                           value: drug.administrationRoutes.joined(separator: "\n"))
             
-            DrugDetailsHeaderRowComponent(iconSystemName: "waveform.path.ecg.rectangle.fill",
+            DrugDetailsHeaderRowComponent(iconSystemName: "waveform.path.ecg.rectangle",
                                           accentColor: .green,
                                           title: "§Forme pharmaceutique",
                                           value: drug.pharmaceuticalForm)
